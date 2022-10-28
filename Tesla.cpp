@@ -22,6 +22,10 @@ Tesla::Tesla(char model, int price)
 }
 void Tesla::chargeBattery(int mins)
 {
+    if(batteryPercentage < 0)
+    {
+        batteryPercentage = 0;
+    }
     batteryPercentage += 0.5*mins;
     if(batteryPercentage > 100)
     {
@@ -58,17 +62,31 @@ float Tesla::get_batteryPercentage()
 }
 void Tesla::drive(int kms)
 {
-    float kms_left = batteryPercentage*5;
-    if (kms_left > kms)
+
+    for (int i=0; i<kms; i++) 
     {
+        while (kms>0 && batteryPercentage>0) {
+            emissions += 74;
+            batteryPercentage -= 0.2;
+            kms--;
+        }
+    }
+    if (batteryPercentage<0) {
         batteryPercentage = 0;
-        emissions += kms_left *74;
     }
-    else
-    {
-        emissions += kms*74;
-        batteryPercentage -= kms*.2;
-    }
+
+    
+    // float kms_left = batteryPercentage*5;
+    // if (kms_left > kms)
+    // {
+    //     batteryPercentage = 0;
+    //     emissions += kms_left *74;
+    // }
+    // else
+    // {
+    //     emissions += kms*74;
+    //     batteryPercentage -= kms*.2;
+    // }
 }
 
 

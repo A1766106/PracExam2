@@ -43,19 +43,34 @@ void Ford::set_litresOfFuel(int l)
 }
 void Ford::drive(int kms)
 {
-    float kmsleft = litresOfFuel * 0.2;
-    if(kmsleft > kms)
+    for(int i=0;i<kms;i++)
     {
+        while (kms>0 && litresOfFuel>0) 
+        {
+            emissions += 234;
+            litresOfFuel -= 0.2;
+            kms--;
+        }
+    }
+    if (litresOfFuel<0) {
         litresOfFuel = 0;
-        emissions += kmsleft *234;
     }
-    else
-    {
-        float fuelUse = 0;
-        int emissionUse = 0;
-        fuelUse += kms * .2;
-        emissionUse += 234*kms;
-        emissions += emissionUse;
-        litresOfFuel -= fuelUse;
-    }
+
+       
+
+    // float kmsleft = litresOfFuel * 0.2;
+    // if(kmsleft > kms)
+    // {
+    //     litresOfFuel = 0;
+    //     emissions += kmsleft *234;
+    // }
+    // else
+    // {
+    //     float fuelUse = 0;
+    //     int emissionUse = 0;
+    //     fuelUse += kms * .2;
+    //     emissionUse += 234*kms;
+    //     emissions += emissionUse;
+    //     litresOfFuel -= fuelUse;
+    // }
 }
