@@ -29,7 +29,7 @@ int Ford::get_BadgeNUmber()
 {
     return badgeNumber;
 }
-int Ford::get_litresOfFuel()
+float Ford::get_litresOfFuel()
 {
     return litresOfFuel;
 }
