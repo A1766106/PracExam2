@@ -19,7 +19,12 @@ Ford::Ford(int badgeNumber, int price)
 }
 void Ford::refuel(int litres)
 {
+    if(litresOfFuel < 0)
+    {
+        litresOfFuel = 0;
+    }
     litresOfFuel += litres;
+
 }
 void Ford::set_badgeNumber(int b)
 {
@@ -35,6 +40,10 @@ float Ford::get_litresOfFuel()
 }
 void Ford::set_litresOfFuel(int l)
 {
+    if(litresOfFuel < 0)
+    {
+        litresOfFuel = 0;
+    }
     litresOfFuel = l;
     if(litresOfFuel<0)
     {
