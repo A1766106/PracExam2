@@ -43,7 +43,7 @@ void Ford::set_litresOfFuel(int l)
 }
 void Ford::drive(int kms)
 {
-    int kmsleft = litresOfFuel * 0.2;
+    float kmsleft = litresOfFuel * 0.2;
     if(kmsleft > kms)
     {
         litresOfFuel = 0;
