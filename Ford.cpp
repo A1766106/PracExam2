@@ -24,6 +24,10 @@ void Ford::refuel(int litres)
         litresOfFuel = 0;
     }
     litresOfFuel += litres;
+    if(litresOfFuel < 0)
+    {
+        litresOfFuel = 0;
+    }
 
 }
 void Ford::set_badgeNumber(int b)
