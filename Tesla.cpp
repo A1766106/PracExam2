@@ -54,16 +54,21 @@ float Tesla::get_batteryPercentage()
 }
 void Tesla::drive(int kms)
 {
-    float BatteryUse = 0;
-    int emissionUse = 0;
-    BatteryUse += kms * 1/5;
-    emissionUse += 74*kms;
-    float finalPercent = batteryPercentage - BatteryUse;
-    if(finalPercent > 0)
+    int kmsleft = batteryPercentage * 5;
+    if(kmsleft > kms)
     {
-        emissions += emissionUse;
+        batteryPercentage = 0;
+        emissions += kmsleft *74;
     }
-    set_batteryPercentage(finalPercent);
+    else
+    {
+        float BatteryUse = 0;
+        int emissionUse = 0;
+        BatteryUse += kms * 1/5;
+        emissionUse += 74*kms;
+        emissions += emissionUse;
+        batteryPercentage -= BatteryUse;
+    }
 }
 
 
