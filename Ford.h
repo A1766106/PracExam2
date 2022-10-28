@@ -7,8 +7,21 @@
 
 using namespace std;
 
-class Ford:public Ford{
-
+class Ford:public Car{
+    private:
+        static int nextVinNumber;
+    protected:
+        int badgeNumber;
+        float litresOfFuel; 
+    public:
+        Ford();            
+        Ford(int badgeNumber, int price);
+        void refuel(int litres); 
+        void set_badgeNumber(int b);
+        int get_BadgeNUmber();
+        int get_litresOfFuel();
+        void set_litresOfFuel(int l);
+        void drive(int kms);
 
 };
 
