@@ -43,6 +43,10 @@ void Tesla::set_batteryPercentage(float b)
     {
         batteryPercentage = 100;
     }
+    if(batteryPercentage < 0)
+    {
+        batteryPercentage = 0;
+    }
 }
 float Tesla::get_batteryPercentage()
 {
